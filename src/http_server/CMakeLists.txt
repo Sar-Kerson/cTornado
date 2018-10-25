@@ -1,0 +1,7 @@
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} DEMO_SRC)
+set(EXE_NAME http_examples)
+add_executable(${EXE_NAME} ${DEMO_SRC})
+target_link_libraries(${EXE_NAME} simple-web-server)
+find_package(Boost 1.53.0 COMPONENTS system thread filesystem REQUIRED)
+target_link_libraries(${EXE_NAME} ${Boost_LIBRARIES})
+target_include_directories(${EXE_NAME} PRIVATE ${Boost_INCLUDE_DIR})
